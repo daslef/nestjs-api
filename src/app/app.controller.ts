@@ -10,8 +10,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get(':word')
-  getCustomWord(@Param() params: { word: string }): string {
-    return this.appService.getCustomWord(params.word);
-  }
+  // @Get(':word')
+  // getCustomWord(@Param("word") word: string): string {
+  //   return this.appService.getCustomWord(word);
+  // }
 }
