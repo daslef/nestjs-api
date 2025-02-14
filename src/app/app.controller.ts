@@ -11,7 +11,7 @@ export class AppController {
   }
 
   @Get(':word')
-  getCustomWord(@Param() params: any): string {
+  getCustomWord(@Param() params: { word: string }): string {
     return this.appService.getCustomWord(params.word);
   }
 }
