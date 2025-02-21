@@ -21,7 +21,7 @@ export default class PostsController {
  
   @Post()
   async createPost(@Body() post: CreatePostDto) {
-    return this.postsService.createPost(post);
+    return await this.postsService.createPost(post);
   }
  
   @Put(':id')

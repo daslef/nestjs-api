@@ -19,7 +19,7 @@ export default class PostsService {
         return this.posts.find(post => post.id === id)
     }
 
-    createPost(post: CreatePostDTO) {
+    async createPost(post: CreatePostDTO) {
         const newPost = {...post, id: this.posts.length + 1}
         this.posts.push(newPost)
         return newPost
