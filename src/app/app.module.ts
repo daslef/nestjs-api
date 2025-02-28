@@ -12,15 +12,12 @@ const configSchema = z.object({
   "DB_USER": z.string().optional(),
   "DB_PASSWORD": z.string().optional(),
   "DB_NAME": z.string(),
-  "API_PORT": z.number()
+  "API_PORT": z.string().transform(value => parseInt(value))
 })
 
 @Module({
   imports: [PostsModule, ConfigModule.forRoot({
-    validate: (env) => {
-      console.log(env)
-      return configSchema.parse(env)
-    },
+    validate: (env) => configSchema.parse(env),
     envFilePath: '.env.local'
   })],
   controllers: [AppController],
